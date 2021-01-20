@@ -1,4 +1,4 @@
-const sampleCtrl = require("../controllers/sample.controllers");
+// const sampleCtrl = require("../controllers/sample.controllers");
 var express = require("express");
 var bodyParser = require("body-parser");
 var sample = express.Router();

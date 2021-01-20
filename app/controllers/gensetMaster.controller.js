@@ -1,5 +1,5 @@
 const userModel = require("../models/gensetMaster.model").userSchema;
-const userService = require("../services/userService");
+const userService = require("../services/gensetMasterService");
 
 exports.addUsers = async (req, res) => {
   try {

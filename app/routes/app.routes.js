@@ -20,17 +20,8 @@ appRouter.initialize = function (app) {
   //     .send({ status: false, message: "unauthorized-access", data: [] });
   // };
   /*### default route ###*/
-  var asset = require("../routes/asset.routes");
-  app.use("/api/asset", asset);
-  var assetType = require("../routes/assetType.routes");
-  app.use("/api/assetType", assetType);
-  var beacon = require("../routes/beacon.routes");
-  app.use("/api/beacon", beacon);
-  var location = require("../routes/location.routes");
-  app.use("/api/location", location);
-  var zone = require("../routes/zone.routes");
-  app.use("/api/zone", zone);
-  var sector = require("../routes/sector.routes");
-  app.use("/api/sector", sector);
+  var genset = require("../routes/gen.routes");
+  app.use("/api/genset", genset);
 };
 module.exports = appRouter;
+ 

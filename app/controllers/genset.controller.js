@@ -1,9 +1,9 @@
-const cityModel = require("../models/city.model").citySchema;
-const cityService = require("../services/cityService");
+const gensetModel = require("../models/genset.model").gensetSchema;
+const gensetService = require("../services/gensetService");
 
-exports.addCity = async (req, res) => {
+exports.addgenset = async (req, res) => {
   try {
-    var schemaPayload = new cityModel(req.body);
+    var schemaPayload = new gensetModel(req.body);
     await schemaPayload
       .save()
       .then((response) => {
@@ -24,29 +24,29 @@ exports.addCity = async (req, res) => {
   }
 };
 
-exports.fetchCitysList = async (req, res) => {
+exports.fetchgensetsList = async (req, res) => {
   try {
-    let getCityList = await cityService.getCityValue(findquery);
-    if (!getCityList.status) {
+    let getgensetList = await gensetService.getgensetValue(findquery);
+    if (!getgensetList.status) {
       return res.status(500).send({
         status: false,
-        message: getCityList.message,
-        data: getCityList.data,
+        message: getgensetList.message,
+        data: getgensetList.data,
       });
     }
 
     // /**if data notfound */
-    if (getCityList.status && getCityList.data.length == 0) {
+    if (getgensetList.status && getgensetList.data.length == 0) {
       return res
         .status(200)
-        .send({ status: false, message: "NotFound", data: getCityList.data });
+        .send({ status: false, message: "NotFound", data: getgensetList.data });
     }
 
     // /**success response */
     return res.status(200).send({
       status: true,
       message: "fetched successfully",
-      data: getCityList.data,
+      data: getgensetList.data,
     });
   } catch (error) {
     res.status(500).send({ errorMessage: err.message });
