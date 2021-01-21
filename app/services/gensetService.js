@@ -13,7 +13,18 @@ module.exports = {
       return { status: false, data: [], message: error.message };
     }
   },
-
+  savedata: async (payload) => {
+    try {
+      // let gensetPayloadObject = new gensetModel(payload);
+      let result = await payload.save();
+      if (result) {
+        return { status: true, data: result, message: "ok" };
+      }
+      return { status: false, data: result, message: "faild to save" };
+    } catch (error) {
+      return { status: false, data: [], message: error.message };
+    }
+  },
   getgensetValue: async (findquery) => {
     try {
       console.log(findquery);

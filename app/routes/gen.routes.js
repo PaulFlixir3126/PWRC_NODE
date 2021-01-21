@@ -1,17 +1,17 @@
-// const sampleCtrl = require("../controllers/sample.controllers");
+// const gensetCtrl = require("../controllers/genset.controllers");
 var express = require("express");
 var bodyParser = require("body-parser");
-var sample = express.Router();
+var genset = express.Router();
 var middleware = require("./app.routes");
-sample.use(bodyParser.json());
+genset.use(bodyParser.json());
 // Create a new Employer
 
-// sample.route("/sample").post(function (req, res, next) {
-//   sampleCtrl.sampleAdd(req, res, next);
+genset.route("/socket").post(function (req, res, next) {
+  gensetCtrl.gensetAdd(req, res, next);
+});
+
+// genset.route("/genset").get(function (req, res, next) {
+//   gensetCtrl.listOfBiomarker(req, res, next);
 // });
 
-// sample.route("/sample").get(function (req, res, next) {
-//   sampleCtrl.listOfBiomarker(req, res, next);
-// });
-
-module.exports = sample;
+module.exports = genset;

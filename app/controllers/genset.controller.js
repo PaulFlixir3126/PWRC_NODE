@@ -1,24 +1,26 @@
 const gensetModel = require("../models/genset.model").gensetSchema;
 const gensetService = require("../services/gensetService");
 
-exports.addgenset = async (req, res) => {
+exports.gensetAdd = async (req, res) => {
   try {
-    var schemaPayload = new gensetModel(req.body);
-    await schemaPayload
-      .save()
-      .then((response) => {
-        res.status(200).send({
-          message: "Added",
-          status: true,
-        });
-      })
-      .catch((error) => {
-        res.status(500).send({
-          message:
-            error.message ||
-            "Some error occurred while adding.",
-        });
-      });
+    console.log(req);
+    await gensetService.savedata(req);
+    // var schemaPayload = new gensetModel(req.body);
+    // await schemaPayload
+    //   .save()
+    //   .then((response) => {
+    //     res.status(200).send({
+    //       message: "Added",
+    //       status: true,
+    //     });
+    //   })
+    //   .catch((error) => {
+    //     res.status(500).send({
+    //       message:
+    //         error.message ||
+    //         "Some error occurred while adding.",
+    //     });
+    //   });
   } catch (error) {
     res.status(500).send({ errorMessage: err.message });
   }
@@ -34,7 +36,6 @@ exports.fetchgensetsList = async (req, res) => {
         data: getgensetList.data,
       });
     }
-
     // /**if data notfound */
     if (getgensetList.status && getgensetList.data.length == 0) {
       return res
