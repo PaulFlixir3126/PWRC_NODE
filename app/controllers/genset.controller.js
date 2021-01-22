@@ -3,8 +3,8 @@ const gensetService = require("../services/gensetService");
 
 exports.gensetAdd = async (req, res) => {
   try {
-    console.log(req);
-    await gensetService.savedata(req);
+    console.log(req.body);
+    await gensetService.savedata(req.body);
     // var schemaPayload = new gensetModel(req.body);
     // await schemaPayload
     //   .save()
