@@ -1,4 +1,4 @@
-const gensetCtrl = require("../controllers/genset.controllers");
+const gensetCtrl = require("../controllers/genset.controller");
 var express = require("express");
 var bodyParser = require("body-parser");
 var genset = express.Router();
