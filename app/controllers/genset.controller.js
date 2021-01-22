@@ -1,4 +1,4 @@
-const gensetModel = require("../models/genset.model").gensetSchema;
+const gensetModel = require("../models/gen.model").gensetSchema;
 const gensetService = require("../services/gensetService");
 
 exports.gensetAdd = async (req, res) => {

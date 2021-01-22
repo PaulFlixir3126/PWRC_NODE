@@ -1,4 +1,4 @@
-const gensetModel = require("../models/genset.model").gensetSchema
+const gensetModel = require("../models\/gen.model").gensetSchema
 
 module.exports = {
   savegensetValue: async (payload) => {
