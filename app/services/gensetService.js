@@ -16,7 +16,9 @@ module.exports = {
   savedata: async (payload) => {
     try {
       // let gensetPayloadObject = new gensetModel(payload);
-      let result = await payload.save();
+      // let result = await new gensetModel(payload) payload.save();
+      let gensetPayloadObject = new gensetModel(payload);
+      let result = await gensetPayloadObject.save();
       if (result) {
         return { status: true, data: result, message: "ok" };
       }

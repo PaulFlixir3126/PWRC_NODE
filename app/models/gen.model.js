@@ -8,10 +8,11 @@ const gensetSchema = mongoose.Schema({
   gensetName : {type: String},
   createdAt: { type: Date, default: new Date() },
   updatedAt: { type: Date, default: new Date() },
-});
+},{ strict: false });
 
 gensetCore.addIncrement(collection, gensetSchema, "id", 001, 1, true);
 
 module.exports = {
   gensetSchema: mongoose.model("gensetModel", gensetSchema, "genset"),
 };
+// gensetSchema: mongoose.model("gensetModel", gensetSchema, "genset"),
